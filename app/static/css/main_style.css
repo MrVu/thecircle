@@ -186,7 +186,7 @@ backface-visibility: hidden;
 
 
 /*Footer*/
-.oi_footer { margin-top:40px; padding-top:20px; padding-bottom:40px; border-top:1px solid #ecf0f1}
+.oi_footer { margin-top:40px; padding-top:20px; padding-bottom:40px; border-top:1px solid #ecf0f1; position: absolute; bottom: 0}
 
 /*Head Folio*/
 
