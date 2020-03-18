@@ -1,0 +1,255 @@
+@import url(bootstrap.css);
+@import url(main_style.css);
+@import url(options.css);
+
+.red {
+color:red;
+}
+
+.center {
+text-align:center;
+}
+
+.right {
+text-align:right;
+}
+
+.mb0 {
+margin-bottom:0!important;
+}
+
+.mb35 {
+margin-bottom:35px!important;
+}
+
+.mt20 {
+margin-top:20px;
+}
+
+.mt30 {
+margin-top:30px;
+}
+
+.m0 {
+margin:0!important;
+}
+
+.vc_custom_mt {
+margin-top:40px!important;
+padding-top:0!important;
+padding-bottom:0!important;
+}
+
+.vc_custom_pt80 {
+padding-top:80px!important;
+padding-bottom:80px!important;
+}
+
+.vc_custom_pt60 {
+background-color:#f6f6f6!important;
+padding:60px!important;
+}
+
+.vc_custom_pt100 {
+/*padding-top:100px!important;*/
+padding-bottom:100px!important;
+background-color:#fff!important;
+}
+
+.vc_custom_pt100_b39674 {
+padding-top:100px!important;
+padding-bottom:100px!important;
+background-color:#b39674!important;
+background-position:center!important;
+background-repeat:no-repeat!important;
+background-size:cover!important;
+}
+
+.vc_custom_pt100_3c3c3c {
+margin-bottom:40px!important;
+padding-top:100px!important;
+padding-bottom:100px!important;
+background-color:#3c3c3c!important;
+}
+
+.overflow_hidden {
+overflow:hidden;
+position:relative;
+}
+
+.vc_custom_pt60fff {
+/*padding-top:60px!important;*/
+padding-bottom:60px!important;
+background-color:#fff!important;
+}
+
+.vc_custom_block_fafafa {
+background-color:#fafafa!important;
+padding:40px!important;
+}
+
+.vc_custom_block_eaeaea {
+background-color:#eaeaea!important;
+padding:40px!important;
+}
+
+.vc_custom_block_ffffff {
+background-color:#fff!important;
+padding:40px!important;
+}
+
+.vc_custom_block_f6f6f6 {
+margin-top:0!important;
+margin-bottom:0!important;
+background-color:#f6f6f6!important;
+padding:40px 20px!important;
+}
+
+.vc_custom_bg_ddbf9b {
+margin-top:0!important;
+margin-bottom:0!important;
+background-color:#ddbf9b!important;
+}
+
+.hr_element {
+margin-bottom:35px;
+margin-top:35px;
+}
+
+.vc_custom_bg_xyyllc {
+margin-bottom:0!important;
+padding-top:200px!important;
+padding-bottom:200px!important;
+background-image:url(../../images/3.jpg)!important;
+background-position:center!important;
+background-repeat:no-repeat!important;
+background-size:cover!important;
+}
+
+.vc_custom_bg_freelancers {
+padding-top:270px!important;
+padding-bottom:270px!important;
+background-image:url(../../images/indhed_limited.jpg)!important;
+background-position:center!important;
+background-repeat:no-repeat!important;
+background-size:cover!important;
+}
+
+.vc_custom_bg_format-quote {
+background-image:url(../../images/Steve-Jobs-by-Ryan-Putnam-oi-1500x700.jpg);
+background-size:cover;
+}
+
+.vc_custom_bg_center {
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+background-size:cover;
+background-position:center center;
+}
+
+.vc_custom_bg_masonry {
+background-image:url(../../images/4bbbd19acba93a2bf092e5cc038dfc0a.jpg);
+}
+
+.vc_custom_bg_masonry2 {
+background-image:url(../../images/2-1240x700.jpg);
+}
+
+.vc_custom_bg_masonry3 {
+background-image:url(../../images/18-1240x700.jpg);
+}
+
+.vc_custom_bg_masonry4 {
+background-image:url(../../images/envato1-1500x700.jpg);
+}
+
+.vc_custom_bg_masonry5 {
+background-image:url(../../images/nvato2-1500x700.jpg);
+}
+
+.m60 {
+margin-top:0;
+margin-bottom:60px;
+}
+
+.mb60_1 {
+margin-bottom:60px!important;
+}
+
+.mb30 {
+margin-bottom:30px;
+}
+
+.mt40 {
+margin-top:40px;
+}
+
+.mt40mb80 {
+margin-top:40px;
+margin-bottom:80px;
+}
+
+.mt20mb60 {
+margin-top:20px;
+margin-bottom:60px;
+}
+
+.hfs80lh86 {
+font-size:80px;
+line-height:86px;
+}
+
+.hfs60lh66 {
+font-size:60px;
+line-height:66px;
+}
+
+.bg_808080 {
+background-color:gray!important;
+}
+
+.bg_eeeeee {
+background-color:#eee!important;
+}
+
+.bg_f3f3ef {
+background-color:#f3f3ef!important;
+}
+
+.bg_ffffff {
+background-color:#fff!important;
+}
+
+.bg_4b3635 {
+background-color:#4b3635!important;
+}
+
+.bg_eaeaea {
+background-color:#eaeaea!important;
+}
+
+.text_fff {
+color:#fff!important;
+}
+
+.uppercase {
+text-transform:uppercase;
+}
+@font-face {
+  font-family: "Josefin Slab";
+  src: local("Josefin Slab Light"), local("JosefinSlab-Light"), url("https://fonts.gstatic.com/s/josefinslab/v10/lW-mwjwOK3Ps5GSJlNNkMalvASy6Kerl.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Light"), local("Roboto-Light"), url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

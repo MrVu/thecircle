@@ -1,0 +1,155 @@
+body {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;    font-style: ;
+    font-size: 14px;
+    line-height: 24px;
+    color: #222222;
+    background-color: #ffffff;
+	background-image:  url('');     background-repeat: ;     background-position: ;    background-size: ;    background-attachment: ;}
+
+.oi_legend {
+    font-family: 'Viaoda Libre', cursive;
+    font-weight: ;    font-style: ;
+    font-size: 44px;
+    line-height: 50px;
+    color: #222;
+}
+
+.oi_sub_legend {
+    font-family: 'Viaoda Libre', cursive;;
+    font-weight: 400;    font-style: ;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222;
+}
+
+
+
+
+h1 {
+    font-family: Open Sans;
+    font-weight: 300;    font-style: ;
+    font-size: 36px;
+    line-height: 40px;
+    color: #222;
+}
+
+h2 {
+    font-family: 'Viaoda Libre', cursive;;
+    font-weight: 300;    font-style: ;
+    font-size: 30px;
+    line-height: 34px;
+    color: #222;
+}
+
+
+h3 {
+    font-family: Open Sans;
+    font-weight: 300;    font-style: ;
+    font-size: 24px;
+    line-height: 28px;
+    color: #222;
+}
+
+
+h4 {
+    font-family: Open Sans;
+    font-weight: 300;    font-style: ;
+    font-size: 18px;
+    line-height: 20px;
+    color: #222;
+}
+
+h5 {
+    font-family: Open Sans;
+    font-weight: 300;    font-style: ;
+    font-size: 16px;
+    line-height: 18px;
+    color: #222;
+}
+
+h6 {
+    font-family: Open Sans;
+    font-weight: 300;    font-style: ;
+    font-size: 14px;
+    line-height: 16px;
+    color: #222;
+}
+a { color:#a38671}
+a:hover {color:#a38671}
+.page-numbers.current { color:#a38671}
+.colored {color: #a38671; }
+.current-menu-item a, .current-menu-parent a{ border-bottom:1px solid #a38671;}
+.oi_soc_header a:hover { color:#a38671; }
+#scroll_to_content a:hover { text-decoration:none; color:#a38671; border-color:#a38671}
+.post-categories li:not(.current-menu-item):not(.current-menu-parent) a:after {
+    background: #a38671;
+}
+.post-categories li:not(.current-menu-item):not(.current-menu-parent) a:hover:before {
+    background: #a38671;
+}
+.oi_header_menu ul > li > a:hover { color:#a38671}
+.oi_header_menu ul > li.current-menu-item > a { color:#a38671}
+.oi_breadcrumbs a:hover { color:#a38671; text-decoration:none;}
+.oi_add_post_like:hover strong { color:#a38671;}
+.oi_add_post_like.oi_already_post_liked strong {color:#a38671;}
+.oi_already_post_liked  .oi_like_post_count {color:#a38671;}
+.oi_blog_post_cat.oi_already_post_liked  { color:#a38671}
+.oi_readmore_btn:hover { color:#a38671; text-decoration:none;}
+.oi_blog_post_meta_holder {color:#a38671}
+.oi_ddate { color:#a38671; border-bottom:1px solid #a38671; }
+.oi_blog_post_cat a:after, .oi_readmore_btn:after {
+    background: #a38671;
+}
+.oi_blog_post_cat a:hover:before, .oi_readmore_btn:hover:before {
+    background: #a38671;
+}
+.link_post .link_date { color:#a38671; border-bottom:1px solid #a38671;}
+.link_url .blog_title_a:hover { color:#a38671}
+.wpcf7 input.wpcf7-submit:hover { color:#a38671}
+.oi_content_btn:hover {color:#a38671;}
+.comment-form input#submit:hover { color:#a38671}
+#load_more_port_masorny_posts:hover { color:#a38671; }
+@media (min-width: 0px) and (max-width: 767px) {
+	.post-categories > li.current-menu-item > a { color:#a38671}
+    .post-categories li.active { background:#a38671}
+}
+#wp-calendar a { color:#a38671}
+#wp-calendar caption { color:#a38671}
+.oi_tweet a:hover { color:#a38671; }
+.oi_tweet_time > a.twitter_time { color:#a38671; }
+.oi_widget ul:not(#cbox):not(.oi_instagram_widget_ul) li a:hover { text-decoration:none; opacity:1; color:#a38671;}
+.oi_header_menu ul {
+border-top-color: #a38671  !important;
+}
+.oi_port_sep {
+ background: #a38671 !important;
+}
+.filter_current {
+color: #a38671 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

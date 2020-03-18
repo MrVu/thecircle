@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!-- content -->
+<div class="container">
+    <div class="row row-fluid" style="opacity: 1;">
+        <div class="col-sm-8">
+            {{ post.detail|safe }}
+        </div>
+        <div class="col-sm-4">
+            <h2 class="oi_sub_legend">{{ post.title }}</h2>
+            <div class="oi_port_sep"></div>
+            <p>&nbsp;</p>
+            <p>Hãy chọn mức góp vốn của bạn, chúng tôi luôn đảm bảo không có lợi nhuận trung gian để từng thành viên của
+                The Circle luôn có được giá sỉ loại 1 trên thị trường với bất kỳ giá trị góp vốn nào</p>
+            <form method="POST">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    <label>Chọn số tiền</label>
+                    {{ form.invest_money(class="form-control") }}
+                </div>
+                <button type="submit" class="btn btn-success">Góp vốn</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- content -->
+
+{% endblock %}
