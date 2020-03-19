@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name 45.117.169.186;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/sammy/MyProject/thecircle.sock;
+    }
+}
