@@ -38,7 +38,7 @@
         <td>{{ deal.invest_money }}</td>
         <td>{{ deal.status }}</td>
         <td>
-            <a href="/admin/deals/edit/{{deal.id}}">Edit</a>
+            <!-- <a href="/admin/deals/edit/{{deal.id}}">Edit</a> -->
             <a href="/admin/deals/remove/{{deal.id}}">Remove</a>
 
         </td>
@@ -67,9 +67,9 @@
     </tbody>
 </table>
 {% if posts %}
-<a href="/admin/posts/create">Create New Post</a>
+<a href="/admin/posts/create">Tạo kho hàng</a>
 {% endif %}
 {% if users %}
-<a href="/admin/users/create">Create User</a>
+<a href="/admin/users/create">Tạo người dùng</a>
 {% endif %}
 {% endblock %}
