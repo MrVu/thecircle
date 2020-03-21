@@ -13,7 +13,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/users/<int:id>')
 @requires_access_level(ACCESS['user'])
 def user_profile(id):
-    table_header = ['Sản phẩm', 'Tiền đầu tư', 'Tình trạng']
+    table_header = ['Mặt hàng', 'Tiền đầu tư', 'Tình trạng']
     user = User.query.get(id)
     return render_template('auth/user_profile.html', user=user, table_header=table_header)
 

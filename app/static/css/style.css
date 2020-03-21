@@ -238,23 +238,8 @@ color:#fff!important;
 .uppercase {
 text-transform:uppercase;
 }
-@font-face {
-  font-family: "Josefin Slab";
-  src: local("Josefin Slab Light"), local("JosefinSlab-Light"), url("https://fonts.gstatic.com/s/josefinslab/v10/lW-mwjwOK3Ps5GSJlNNkMalvASy6Kerl.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 300;
-  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: local("Roboto Light"), local("Roboto-Light"), url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 300;
-  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 .container-main {
-min-height:60vh;
+min-height:50vh;
 padding-bottom:40px;
 }
