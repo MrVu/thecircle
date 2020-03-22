@@ -13,21 +13,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href={{url_for('static', filename="css/style.css")}} rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080b631aa1.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- Content Area -->
 <!-- header -->
     <div class="oi_head_holder">
+
         <div class="container">
             <div class="oi_logo_place">
                 <a href="/"><img src={{url_for('static', filename="img/thecircle-logo.png")}}
                                                                               alt="The Circle"></a>
             </div>
             <div class="oi_xs_menu visible-xs text-center">
-
+              <a href="javascript:void(0);" class="icon" onclick="hideNav()"><span class="fa fa-bars"></span></a>
             </div>
-            <nav>
-                <ul id="menu-header-menu-1" class="post-categories oi_header_menu">
+                <ul id="menu-header-menu" class="post-categories oi_header_menu">
                     <li>
                         <a href="/">Trang chủ</a>
                     </li>
@@ -53,7 +54,6 @@
                     {% endif %}
 
                 </ul>
-            </nav>
         </div>
     </div>
     <!-- end header -->

@@ -1,5 +1,14 @@
 
 
+function hideNav() {
+  var x = document.getElementById("menu-header-menu");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
 jQuery.noConflict()(function($) {
     "use strict";
     var $container = $('.oi_port_container');
@@ -53,7 +62,7 @@ jQuery.noConflict()(function($) {
             }, index * 200, $(this));
         });
     });
-    
+
 	$('.row-fluid').css('opacity', 0);
     $(function() {
         $('.row-fluid').each(function(index) {
@@ -104,8 +113,8 @@ jQuery.noConflict()(function($) {
         });
 
     });
-	
-	
+
+
 	$(document).ready(function ()
 	{ // after loading the DOM
 		$("#ajax-contact-form").submit(function ()
@@ -120,7 +129,7 @@ jQuery.noConflict()(function($) {
 				url: 'contact.php',
 				data: str,
 				success: function (msg)
-				{	
+				{
 						if (msg == 'OK'){
 							result = '<div class="alert alert-info">Message was sent to website administrator, thank you!</div>';
 							$("#fields").hide();
@@ -128,7 +137,7 @@ jQuery.noConflict()(function($) {
 							result = msg;
 						}
 						$("#note").html(result);
-				
+
 				}
 			});
 			return false;
