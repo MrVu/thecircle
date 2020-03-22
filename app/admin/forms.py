@@ -29,7 +29,7 @@ class CreateUserForm(FlaskForm):
     address = StringField('Address')
 
 class UpdateDealForm(FlaskForm):
-    status = SelectField('Tình trạng', choices=[('Chờ duyệt', 'Chờ duyệt'), ('Đã xác nhận', 'Đã xác nhận'), ('Hoàn thành', 'Hoàn thành')])
+    status = SelectField('Tình trạng', choices=[('Chờ duyệt', 'Chờ duyệt'), ('Đã xác nhận', 'Đã xác nhận'), ('Đã thanh toán', 'Đã thanh toán')])
 
 
 class AdminLoginForm(FlaskForm):

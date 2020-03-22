@@ -124,6 +124,7 @@ def edit_post(id):
         post.title = form.title.data
         post.description_text = form.description_text.data
         post.detail = form.detail.data
+        post.set_service_fee(form.interest.data)
         db.session.commit()
         return redirect(url_for('admin.get_posts'))
     form.min_money.data = post.min_money
@@ -172,6 +173,7 @@ def create_post():
         detail = form.detail.data
         post = Post(title=title, description_text=description_text,
                     detail=detail, category=category, level=level, min_money=min_money, interest=interest)
+        post.set_service_fee(interest)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('admin.get_posts'))

@@ -18,7 +18,8 @@
         <tr>
             <th scope="row"></th>
             <td>{{deal.belong_to_post.title}}</td>
-            <td>{{deal.invest_money}}</td>
+            <td>{{deal.invest_money | thousand_seperator}} VNĐ</td>
+            <td>{{ deal.belong_to_post.service_fee | thousand_seperator }} VNĐ</td>
             <td>{{deal.status}}</td>
         </tr>
         {% endfor %}

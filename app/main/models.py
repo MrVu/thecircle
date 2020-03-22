@@ -9,7 +9,8 @@ from flask import url_for, request, redirect, session
 ACCESS = {
     'guest': 0,
     'user': 1,
-    'admin': 2
+    'mod':2,
+    'admin': 3
 }
 
 
@@ -33,7 +34,25 @@ class Post(Base):
     interest = db.Column(db.String(128))
     min_money = db.Column(db.String(128))
     level = db.Column(db.String(128))
+    service_fee = db.Column(db.Integer)
 
+    def __init__(self, category, title, description_text, detail, interest, min_money, level):
+        self.category= category
+        self.title = title
+        self.description_text = description_text
+        self.detail = detail
+        self.interest = interest
+        self.min_money= min_money
+        self.level = level
+
+    def set_service_fee(self, int_interest):
+        int_interest = int(int_interest.strip('%'))
+        if int_interest < 100:
+            self.service_fee = 50000
+        if 100 < int_interest < 300:
+            self.service_fee = 100000
+        else:
+            self.service_fee = 150000
 
 class User(Base, UserMixin):
     __tablename__ = 'user'
@@ -54,6 +73,12 @@ class User(Base, UserMixin):
 
     def is_admin(self):
         return self.access == ACCESS['admin']
+
+    def set_admin(self):
+        self.access = ACCESS['admin']
+
+    def set_mod(self):
+        self.access = ACCESS['mod']
 
     def allowed(self, access_level):
         return self.access >= access_level

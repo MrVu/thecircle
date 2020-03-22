@@ -17,6 +17,7 @@
                     <label>Chọn số tiền</label>
                     {{ form.invest_money(class="form-control") }}
                 </div>
+                <p>Phí kho hàng: {{post.service_fee| thousand_seperator }} VNĐ </p>
                 <button type="submit" class="btn btn-success">Góp vốn</button>
             </form>
 

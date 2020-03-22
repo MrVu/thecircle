@@ -8,7 +8,6 @@ from flask_login import current_user
 
 main = Blueprint('main', __name__)
 
-
 def send_email(subject, sender, recipients, text_body, user_name, user_email):
     msg = Message(subject, sender=sender, recipients=recipients)
     msg.body = text_body + '\n' + 'From: ' + user_name + "\n" + 'Email: ' + user_email

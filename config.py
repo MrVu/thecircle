@@ -8,7 +8,10 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Define the database - we are working with
 # SQLite for this example
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+development_database = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+production_database = 'sqlite:///' + os.path.join(BASE_DIR, 'thecircle.db')
+DATABASE_CONFIG = {'development': development_database , 'production': production_database}
+SQLALCHEMY_DATABASE_URI = DATABASE_CONFIG.get(os.environ.get('DATABASE'))
 DATABASE_CONNECT_OPTIONS = {}
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'app/static/img/')
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}

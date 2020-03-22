@@ -10,6 +10,11 @@ from flask_mail import Mail
 # Define the WSGI application object
 app = Flask(__name__)
 
+#custom filter on jinja2
+@app.template_filter()
+def thousand_seperator(val):
+    val = int(val)
+    return format(val , ',d').replace(",",".")
 # Configurations
 app.config.from_object('config')
 
