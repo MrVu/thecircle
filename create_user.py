@@ -11,7 +11,7 @@ access_level = input('Access level: ')
 access_level = int(access_level)
 if access_level == 2:
     user.set_mod()
-if access_level == 3:
+elif access_level == 3:
     user.set_admin()
 else:
     print('Normal user')

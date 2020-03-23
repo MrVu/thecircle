@@ -49,7 +49,7 @@ class Post(Base):
         int_interest = int(int_interest.strip('%'))
         if int_interest < 100:
             self.service_fee = 50000
-        if 100 < int_interest < 300:
+        elif 100 < int_interest < 300:
             self.service_fee = 100000
         else:
             self.service_fee = 150000
