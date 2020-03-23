@@ -13,6 +13,7 @@ production_database = 'sqlite:///' + os.path.join(BASE_DIR, 'thecircle.db')
 DATABASE_CONFIG = {'development': development_database , 'production': production_database}
 SQLALCHEMY_DATABASE_URI = DATABASE_CONFIG.get(os.environ.get('DATABASE'))
 DATABASE_CONNECT_OPTIONS = {}
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'app/static/img/')
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 

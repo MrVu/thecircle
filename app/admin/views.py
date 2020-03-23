@@ -28,7 +28,7 @@ def admin_login():
 
 
 @admin.route('/admin/users')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def get_users():
     table_header = ['Tên', 'Email', 'Địa chỉ', 'Điện thoại']
     create_link = [url_for('admin.create_user'), "Tạo người dùng"]
@@ -37,7 +37,7 @@ def get_users():
 
 
 @admin.route('/admin/users/<int:id>')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def admin_get_user_profile(id):
     table_header = ['Sản phẩm', 'Tiền đầu tư', 'Tình trạng']
     user = User.query.get(id)
@@ -45,7 +45,7 @@ def admin_get_user_profile(id):
 
 
 @admin.route('/admin/deals')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def get_deals():
     table_header = ['Tiêu đề', 'Khách hàng', 'Số tiền', 'Tình trạng']
     deals = Deal.query.all()
@@ -53,7 +53,7 @@ def get_deals():
 
 
 @admin.route('/admin/deals/<int:id>', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def get_deal_detail(id):
     deal = Deal.query.get(id)
     table_header = ['Tiêu đề', 'Số tiền', 'Tình trạng']
@@ -68,7 +68,7 @@ def get_deal_detail(id):
 @admin.route('/admin', methods=['GET', 'POST'])
 @admin.route('/admin/', methods=['GET', 'POST'])
 @admin.route('/admin/posts')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def get_posts():
     table_header = ['Tiêu đề', 'Mô tả', 'Tổng tiền', 'Số khách hàng']
     create_link = [url_for('admin.create_post'), "Tạo kho mới"]
@@ -86,7 +86,7 @@ def admin_logout():
 
 
 @admin.route('/admin/users/remove/<int:id>')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def remove_user(id):
     user = User.query.get(id)
     db.session.delete(user)
@@ -95,7 +95,7 @@ def remove_user(id):
 
 
 @admin.route('/admin/deals/remove/<int:id>')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def remove_deal(id):
     deal = Deal.query.get(id)
     db.session.delete(deal)
@@ -104,7 +104,7 @@ def remove_deal(id):
 
 
 @admin.route('/admin/posts/remove/<int:id>')
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def remove_post(id):
     post = Post.query.get(id)
     db.session.delete(post)
@@ -113,7 +113,7 @@ def remove_post(id):
 
 
 @admin.route('/admin/posts/edit/<int:id>', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def edit_post(id):
     post = Post.query.get(id)
     form = CreatePostForm()
@@ -140,7 +140,7 @@ def edit_post(id):
 
 
 @admin.route('/admin/users/edit/<int:id>', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def edit_user(id):
     form = CreateUserForm()
     user = User.query.get(id)
@@ -162,7 +162,7 @@ def edit_user(id):
 
 
 @admin.route('/admin/posts/create', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def create_post():
     form = CreatePostForm()
     if form.validate_on_submit():
@@ -183,7 +183,7 @@ def create_post():
 
 
 @admin.route('/admin/users/create', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
+@requires_access_level(ACCESS['mod'])
 def create_user():
     form = CreateUserForm()
     if form.validate_on_submit():
