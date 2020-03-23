@@ -48,6 +48,7 @@
 
     {% if users %}
     {% for user in users %}
+    {% if not user.is_admin() %}
     <tr>
         <th scope="row">{{ user.id}}</th>
         <td><a href="/admin/users/{{user.id}}"> {{ user.name }}</a></td>
@@ -60,6 +61,7 @@
 
         </td>
     </tr>
+    {% endif %}
     {% endfor %}
     {% endif %}
 
