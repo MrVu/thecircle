@@ -31,8 +31,9 @@ def admin_login():
 @requires_access_level(ACCESS['admin'])
 def get_users():
     table_header = ['Tên', 'Email', 'Địa chỉ', 'Điện thoại']
+    create_link = [url_for('admin.create_user'), "Tạo người dùng"]
     users = User.query.all()
-    return render_template('admin/get_posts.html', users=users, table_header=table_header)
+    return render_template('admin/get_posts.html', users=users, table_header=table_header, create_link = create_link)
 
 
 @admin.route('/admin/users/<int:id>')
@@ -70,8 +71,9 @@ def get_deal_detail(id):
 @requires_access_level(ACCESS['admin'])
 def get_posts():
     table_header = ['Tiêu đề', 'Mô tả', 'Tổng tiền', 'Số khách hàng']
+    create_link = [url_for('admin.create_post'), "Tạo kho mới"]
     posts = Post.query.all()
-    return render_template('admin/get_posts.html', posts=posts, table_header=table_header)
+    return render_template('admin/get_posts.html', posts=posts, table_header=table_header, create_link= create_link)
 
 
 """

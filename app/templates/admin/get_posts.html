@@ -66,10 +66,7 @@
 
     </tbody>
 </table>
-{% if posts %}
-<a href="/admin/posts/create">Tạo kho hàng</a>
-{% endif %}
-{% if users %}
-<a href="/admin/users/create">Tạo người dùng</a>
+{% if create_link %}
+<a href ={{ create_link[0] }}>{{ create_link[1] }}</a>
 {% endif %}
 {% endblock %}
