@@ -16,9 +16,6 @@ class CreatePostForm(FlaskForm):
     interest = StringField('Interest')
     min_money = StringField('Minimum money to deal')
     our_min_money = StringField('Giá sỉ của The Circle')
-    level = SelectField('Mức giá',
-                        choices=[('Nhà phân phối', 'Phân phối'), ('Đại lý 1', 'Đại lý 1'), ('Đại lý 2', 'Đại lý 2'),
-                                 ('Bán lẻ', 'Bán lẻ')])
     detail = TextAreaField('Detail Description')
 
 
