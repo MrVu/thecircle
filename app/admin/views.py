@@ -126,6 +126,7 @@ def edit_post(id):
         post.title = form.title.data
         post.description_text = form.description_text.data
         post.detail = form.detail.data
+        post.our_min_money = form.our_min_money.data
         post.set_service_fee(form.interest.data)
         db.session.commit()
         return redirect(url_for('admin.get_posts'))
@@ -136,6 +137,7 @@ def edit_post(id):
     form.title.data = post.title
     form.description_text.data = post.description_text
     form.detail.data = post.detail
+    form.our_min_money.data = post.our_min_money
     return render_template('admin/create_post.html', form=form)
 
 
