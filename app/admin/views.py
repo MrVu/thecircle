@@ -119,7 +119,6 @@ def edit_post(id):
     form = CreatePostForm()
 
     if form.validate_on_submit():
-        post.level = form.level.data
         post.interest = form.interest.data
         post.min_money = form.min_money.data
         post.category = form.category.data
@@ -132,7 +131,6 @@ def edit_post(id):
         return redirect(url_for('admin.get_posts'))
     form.min_money.data = post.min_money
     form.interest.data = post.interest
-    form.level.data = post.level
     form.category.data = post.category
     form.title.data = post.title
     form.description_text.data = post.description_text
@@ -171,13 +169,12 @@ def create_post():
         category = form.category.data
         min_money = form.min_money.data
         interest = form.interest.data
-        level = form.level.data
         title = form.title.data
         description_text = form.description_text.data
         detail = form.detail.data
         our_min_money = form.our_min_money.data
         post = Post(title=title, description_text=description_text,
-                    detail=detail, category=category, level=level, min_money=min_money, interest=interest, our_min_money=our_min_money)
+                    detail=detail, category=category, min_money=min_money, interest=interest, our_min_money=our_min_money)
         post.set_service_fee(interest)
         db.session.add(post)
         db.session.commit()
