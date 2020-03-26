@@ -173,8 +173,9 @@ def create_post():
         title = form.title.data
         description_text = form.description_text.data
         detail = form.detail.data
+        our_min_money = form.our_min_money.data
         post = Post(title=title, description_text=description_text,
-                    detail=detail, category=category, level=level, min_money=min_money, interest=interest)
+                    detail=detail, category=category, level=level, min_money=min_money, interest=interest, our_min_money=our_min_money)
         post.set_service_fee(interest)
         db.session.add(post)
         db.session.commit()
