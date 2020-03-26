@@ -33,10 +33,11 @@ class Post(Base):
     deals= db.relationship('Deal', backref='belong_to_post', lazy='dynamic')
     interest = db.Column(db.String(128))
     min_money = db.Column(db.String(128))
+    our_min_money = db.Column(db.String(128))
     level = db.Column(db.String(128))
     service_fee = db.Column(db.Integer)
 
-    def __init__(self, category, title, description_text, detail, interest, min_money, level):
+    def __init__(self, category, title, description_text, detail, interest, min_money, level, our_min_money):
         self.category= category
         self.title = title
         self.description_text = description_text
@@ -44,6 +45,7 @@ class Post(Base):
         self.interest = interest
         self.min_money= min_money
         self.level = level
+        self.our_min_money = our_min_money
 
     def set_service_fee(self, int_interest):
         int_interest = int(int_interest.strip('%'))
