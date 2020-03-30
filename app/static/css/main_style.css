@@ -540,7 +540,7 @@ blockquote {
 
 
 @media (min-width: 0px) and (max-width: 767px) {
-	.oi_small_descr { display:none;}
+	.oi_small_descr { }
 	h2.oi_legend.blog_title { margin-bottom:20px !important}
 	.oi_blocks_post .oi_post_holder { height:500px !important;}
 	.oi_logo_place { float:none; text-align:center; margin-right:0px; margin-bottom:30px; }
