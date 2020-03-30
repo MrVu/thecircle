@@ -15,5 +15,5 @@ class ContactForm(FlaskForm):
 
 class InvestForm(FlaskForm):
     invest_money = SelectField('Chọn số tiền góp vốn: ',
-                               choices=[('2000000', '2.000.000 VND'), ('3000000', '3.000.000 VND'),
-                                        ('5000000', '5.000.000 VND'), ('8000000', '8.000.000 VND')])
+                               choices=[('2000000', '2.000.000 VNĐ/tháng'), ('3000000', '3.000.000 VNĐ/tháng'),
+                                        ('5000000', '5.000.000 VNĐ/tháng'), ('8000000', '8.000.000 VNĐ/tháng')])

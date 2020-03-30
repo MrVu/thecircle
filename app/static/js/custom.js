@@ -75,7 +75,7 @@ jQuery.noConflict()(function($) {
 
 
     if ($('body').width() > 640) {
-        $(window).load(function() {
+        $(window).on('load', function() {
             if (($("body").height() - $(window).height()) > 300) {
                 var stickyNavTop = $('.oi_head_holder').offset().top + $(".oi_head_holder .row").outerHeight();
                 $(window).scroll(function() {

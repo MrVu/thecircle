@@ -18,7 +18,7 @@ def send_email(subject, sender, recipients, text_body, user_name, user_email):
 def index():
     posts = Post.query.all()
     static_url = url_for('static', filename="")
-    return render_template('main/index.html', posts=posts, static_url=static_url)
+    return render_template('main/business_index.html', posts=posts, static_url=static_url)
 
 
 @main.route('/posts/<int:id>', methods=['GET', 'POST'])

@@ -63,7 +63,7 @@ user-select: none;
 
 
 /*Header*/
-.oi_head_holder { padding:60px 0;}
+.oi_head_holder { padding:30px 0;}
 .oi_logo_place { float:left; margin-right:40px;}
 
 /*Menu*/
@@ -594,4 +594,3 @@ blockquote {
 	.page .vc_custom_1413276226145 { padding:20px !important;}
 	#oi_container { padding-top:40px;}
 }
-
