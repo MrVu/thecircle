@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
 {% block contents %}
-	<div class="row row-fluid full_row" style="opacity: 1;">
-        <div class="col-md-12 f_slider">
-            <ul class="slides">
-                <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img src={{ url_for('static', filename='img/banner-4-1110x740.jpg') }} class="img-responsive" alt="img-index" draggable="false"></li>
-                <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img src={{ url_for('static', filename='img/banner-3-1110x740.jpg') }} class="img-responsive" alt="5cbec2ad0331cbba7eb6facdbfcf3e8c" draggable="false"></li>
-				<li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img src={{ url_for('static', filename='img/banner-2-1110x740.jpg') }} class="img-responsive" alt="5cbec2ad0331cbba7eb6facdbfcf3e8c" draggable="false"></li>
-				<li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;"><img src={{ url_for('static', filename='img/banner-1-1110x740.jpg') }} class="img-responsive" alt="5cbec2ad0331cbba7eb6facdbfcf3e8c" draggable="false"></li>
-            </ul>
-        <ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul></div>
+
+        <div class="col-md-12">
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src={{ url_for('static', filename='img/banner-4-1110x740.jpg') }} alt="Los Angeles">
     </div>
+
+    <div class="item">
+      <img src={{ url_for('static', filename='img/banner-1-1110x740.jpg') }} alt="Chicago">
+    </div>
+
+    <div class="item">
+      <img src={{ url_for('static', filename='img/banner-2-1110x740.jpg') }} alt="New York">
+    </div>
+  </div>
+
+</div>
+        </div>
     <div class="row row-fluid vc_custom_pt80" style="opacity: 1;">
         <div class="col-sm-6 oi_block">
                 <h2 class="oi_legend">CHÀO BẠN</h2>

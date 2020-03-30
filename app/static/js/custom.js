@@ -4,7 +4,9 @@ function hideNav() {
   var x = document.getElementById("menu-header-menu");
   if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
+
+  }
+   else {
     x.style.display = "block";
   }
 }
@@ -88,7 +90,6 @@ jQuery.noConflict()(function($) {
             };
         });
     };
-    
 
 	$('.oi_xs_menu').click(function(){
 		$('.oi_header_menu').toggle();
