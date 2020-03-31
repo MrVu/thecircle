@@ -1,41 +1,41 @@
 {% extends 'base.html' %}
 {% block contents %}
-    <div class="row row-fluid" style="opacity: 1;">
+<div class="row row-fluid" style="opacity: 1;">
 
-        <div class="col-sm-8">
-            <!-- Deals -->
-            <table class="table table-striped">
-        <thead>
+  <div class="col-sm-8">
+    <!-- Deals -->
+    <table class="table table-striped">
+      <thead>
         <tr>
-            <th scope="col">#</th>
-            {% for header in table_header %}
-            <th scope="col">{{ header }}</th>
-            {% endfor %}
+          <th scope="col">#</th>
+          {% for header in table_header %}
+          <th scope="col">{{ header }}</th>
+          {% endfor %}
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         {% for deal in user.deals %}
         <tr>
-            <th scope="row"></th>
-            <td>{{deal.belong_to_post.title}}</td>
-            <td>{{deal.invest_money | thousand_seperator}} VNĐ</td>
-            <td>{{ deal.belong_to_post.service_fee | thousand_seperator }} VNĐ</td>
-            <td>{{deal.status}}</td>
+          <th scope="row"></th>
+          <td>{{deal.belong_to_post.title}}</td>
+          <td>{{deal.invest_money | thousand_seperator}} VNĐ</td>
+          <td>{{ deal.belong_to_post.service_fee | thousand_seperator }} VNĐ</td>
+          <td>{{deal.status}}</td>
         </tr>
         {% endfor %}
-        </tbody>
-        </table>
-        </div>
-        <div class="col-sm-4">
-            <h2 class="oi_sub_legend">Thông tin người dùng</h2>
-            <div class="oi_port_sep"></div>
-            <p>&nbsp;</p>
-            <p> Tên: {{ user.name }}</p>
-            <p> Email: {{ user.email }}</p>
-            <p> Điện thoại: {{ user.phone_number }}</p>
-            <p> Địa chỉ: {{ user.address }}</p>
-            <!-- form -->
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <h2 class="oi_sub_legend">Thông tin người dùng</h2>
+    <div class="oi_port_sep"></div>
+    <p>&nbsp;</p>
+    <p> Tên: {{ user.name }}</p>
+    <p> Email: {{ user.email }}</p>
+    <p> Điện thoại: {{ user.phone_number }}</p>
+    <p> Địa chỉ: {{ user.address }}</p>
+    <!-- form -->
 
-        </div>
-    </div>
+  </div>
+</div>
 {% endblock %}

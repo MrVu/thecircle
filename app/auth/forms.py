@@ -7,5 +7,12 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from flask_wtf.file import FileRequired
 
 class LoginForm(FlaskForm):
-    email = StringField(('Username'), validators=[DataRequired()])
-    password = PasswordField(('Password'), validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+
+class RegisterForm(FlaskForm):
+    name = StringField('Username')
+    phone_number = StringField('Phone Number')
+    address = StringField('Address')
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])

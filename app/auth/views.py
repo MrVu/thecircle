@@ -5,7 +5,7 @@ from app.main.models import Post, User
 from werkzeug.utils import secure_filename
 from app import db
 from app.main.models import requires_access_level, ACCESS
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 
 auth = Blueprint('auth', __name__)
 
@@ -13,9 +13,34 @@ auth = Blueprint('auth', __name__)
 @auth.route('/users/<int:id>')
 @requires_access_level(ACCESS['user'])
 def user_profile(id):
-    table_header = ['Mặt hàng', 'Tiền đầu tư','Phí kho hàng', 'Tình trạng']
+    table_header = ['Mặt hàng', 'Tiền đầu tư', 'Phí kho hàng', 'Tình trạng']
     user = User.query.get(id)
     return render_template('auth/user_profile.html', user=user, table_header=table_header)
+
+
+@auth.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('auth.user_profile', id=current_user.id))
+    form = RegisterForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        phone_number = form.phone_number.data
+        address = form.address.data
+        email = form.email.data
+        existed_user = User.query.filter_by(email=email).first()
+        if existed_user:
+            flash('Email đã được sử dụng')
+            return redirect(url_for('auth.register'))
+        pw = form.password.data
+        user = User(name=name, phone_number=phone_number,
+                    address=address, email=email)
+        user.set_password(pw)
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
+        return redirect(url_for('auth.user_profile', id=user.id))
+    return render_template('auth/register.html', form=form)
 
 
 @auth.route('/login', methods=['GET', 'POST'])
