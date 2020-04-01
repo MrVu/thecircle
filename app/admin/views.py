@@ -1,30 +1,19 @@
 from flask import Blueprint, request, render_template, \
     flash, g, session, redirect, url_for, current_app
 from flask_login import login_user, logout_user, current_user
-from .forms import CreatePostForm, AdminLoginForm, CreateUserForm, UpdateDealForm
-from app.main.models import Post, User, requires_access_level, ACCESS, Deal
+from .forms import AdminLoginForm, CreateUserForm, ChangeOrderStatusForm
+from app.main.models import User, requires_access_level, ACCESS, Order, OrderStatus
 from werkzeug.utils import secure_filename
 from app import db
 
-admin = Blueprint('admin', __name__)
+status_count = 0
 
-"""
-@admin.route('/admin', methods=['GET', 'POST'])
-@admin.route('/admin/', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['admin'])
-def admin_login():
-    if current_user.is_authenticated:
-        return redirect(url_for('admin.get_posts'))
-    form = AdminLoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('admin.admin_login'))
-        login_user(user)
-        return redirect(url_for('admin.get_posts'))
-    return render_template('admin/admin_login.html', form=form)
-"""
+admin = Blueprint('admin', __name__)
+@admin.before_request
+def orders_status_count():
+    global status_count
+    status = OrderStatus.query.get(1)
+    g.status_count = Order.query.filter_by(belong_to_status=status).count()
 
 
 @admin.route('/admin/users')
@@ -33,7 +22,7 @@ def get_users():
     table_header = ['Tên', 'Email', 'Địa chỉ', 'Điện thoại']
     create_link = [url_for('admin.create_user'), "Tạo người dùng"]
     users = User.query.all()
-    return render_template('admin/get_posts.html', users=users, table_header=table_header, create_link = create_link)
+    return render_template('admin/get_posts.html', users=users, table_header=table_header, create_link=create_link)
 
 
 @admin.route('/admin/users/<int:id>')
@@ -44,45 +33,35 @@ def admin_get_user_profile(id):
     return render_template('admin/user_profile.html', user=user, table_header=table_header)
 
 
-@admin.route('/admin/deals')
-@requires_access_level(ACCESS['mod'])
-def get_deals():
-    table_header = ['Tiêu đề', 'Khách hàng', 'Số tiền', 'Tình trạng']
-    deals = Deal.query.all()
-    return render_template('admin/get_posts.html', deals=deals, table_header=table_header)
-
-
-@admin.route('/admin/deals/<int:id>', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['mod'])
-def get_deal_detail(id):
-    deal = Deal.query.get(id)
-    table_header = ['Tiêu đề', 'Số tiền', 'Tình trạng']
-    form = UpdateDealForm()
-    if form.validate_on_submit():
-        deal.status = form.status.data
-        db.session.commit()
-        return redirect(url_for('admin.get_deal_detail', id= deal.id))
-    return render_template('/admin/deal_detail.html', deal=deal, table_header= table_header, form=form)
-
-
 @admin.route('/admin', methods=['GET', 'POST'])
 @admin.route('/admin/', methods=['GET', 'POST'])
-@admin.route('/admin/posts')
+@admin.route('/admin/orders', methods=['GET', 'POST'])
 @requires_access_level(ACCESS['mod'])
-def get_posts():
-    table_header = ['Tiêu đề', 'Mô tả', 'Tổng tiền', 'Số khách hàng']
-    create_link = [url_for('admin.create_post'), "Tạo kho mới"]
-    posts = Post.query.all()
-    return render_template('admin/get_posts.html', posts=posts, table_header=table_header, create_link= create_link)
+def get_orders():
+    table_header = ['Tiêu đề', 'Khách hàng', 'Ngân sách', 'Tình trạng']
+    orders = Order.query.all()
+    #create_link = [url_for('admin.create_post'), "Tạo kho mới"]
+    return render_template('admin/get_posts.html', table_header=table_header, orders=orders)
 
 
-"""
-@admin.route('/admin/logout')
-@requires_access_level(ACCESS['admin'])
-def admin_logout():
-    logout_user()
-    return redirect(url_for('main.index'))
-"""
+@admin.route('/admin/orders/<int:id>', methods=['GET', 'POST'])
+@requires_access_level(ACCESS['mod'])
+def admin_get_order_detail(id):
+    form = ChangeOrderStatusForm()
+    choices = []
+    orders_status = OrderStatus.query.all()
+    order = Order.query.get(id)
+    for order_status in orders_status:
+        choices.append((order_status.name, order_status.name))
+    form.status.choices = choices
+    if form.validate_on_submit():
+        order_status = OrderStatus.query.filter_by(
+            name=form.status.data).first()
+        order.belong_to_status = order_status
+        db.session.commit()
+        return redirect(url_for('admin.admin_get_order_detail', id=order.id))
+
+    return render_template('admin/order_detail.html', order=order, form=form)
 
 
 @admin.route('/admin/users/remove/<int:id>')
@@ -94,49 +73,13 @@ def remove_user(id):
     return redirect(url_for('admin.get_posts'))
 
 
-@admin.route('/admin/deals/remove/<int:id>')
+@admin.route('/admin/orders/remove/<int:id>')
 @requires_access_level(ACCESS['mod'])
-def remove_deal(id):
-    deal = Deal.query.get(id)
-    db.session.delete(deal)
+def remove_order(id):
+    order = Order.query.get(id)
+    db.session.delete(order)
     db.session.commit()
-    return redirect(url_for('admin.get_posts'))
-
-
-@admin.route('/admin/posts/remove/<int:id>')
-@requires_access_level(ACCESS['mod'])
-def remove_post(id):
-    post = Post.query.get(id)
-    db.session.delete(post)
-    db.session.commit()
-    return redirect(url_for('admin.get_posts'))
-
-
-@admin.route('/admin/posts/edit/<int:id>', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['mod'])
-def edit_post(id):
-    post = Post.query.get(id)
-    form = CreatePostForm()
-
-    if form.validate_on_submit():
-        post.interest = form.interest.data
-        post.min_money = form.min_money.data
-        post.category = form.category.data
-        post.title = form.title.data
-        post.description_text = form.description_text.data
-        post.detail = form.detail.data
-        post.our_min_money = form.our_min_money.data
-        post.set_service_fee(form.interest.data)
-        db.session.commit()
-        return redirect(url_for('admin.get_posts'))
-    form.min_money.data = post.min_money
-    form.interest.data = post.interest
-    form.category.data = post.category
-    form.title.data = post.title
-    form.description_text.data = post.description_text
-    form.detail.data = post.detail
-    form.our_min_money.data = post.our_min_money
-    return render_template('admin/create_post.html', form=form)
+    return redirect(url_for('admin.get_orders'))
 
 
 @admin.route('/admin/users/edit/<int:id>', methods=['GET', 'POST'])
@@ -161,27 +104,6 @@ def edit_user(id):
     return render_template('admin/create_user.html', form=form)
 
 
-@admin.route('/admin/posts/create', methods=['GET', 'POST'])
-@requires_access_level(ACCESS['mod'])
-def create_post():
-    form = CreatePostForm()
-    if form.validate_on_submit():
-        category = form.category.data
-        min_money = form.min_money.data
-        interest = form.interest.data
-        title = form.title.data
-        description_text = form.description_text.data
-        detail = form.detail.data
-        our_min_money = form.our_min_money.data
-        post = Post(title=title, description_text=description_text,
-                    detail=detail, category=category, min_money=min_money, interest=interest, our_min_money=our_min_money)
-        post.set_service_fee(interest)
-        db.session.add(post)
-        db.session.commit()
-        return redirect(url_for('admin.get_posts'))
-    return render_template('admin/create_post.html', form=form)
-
-
 @admin.route('/admin/users/create', methods=['GET', 'POST'])
 @requires_access_level(ACCESS['mod'])
 def create_user():
@@ -192,9 +114,10 @@ def create_user():
         address = form.address.data
         email = form.email.data
         pw = form.password.data
-        user = User(name=name, phone_number=phone_number, address=address, email=email)
+        user = User(name=name, phone_number=phone_number,
+                    address=address, email=email)
         user.set_password(pw)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('admin.get_posts'))
+        return redirect(url_for('admin.get_users'))
     return render_template('admin/create_user.html', form=form)

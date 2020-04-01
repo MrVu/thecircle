@@ -1,0 +1,73 @@
+{% extends 'admin_base.html' %}
+{% block contents %}
+<section class="projects">
+  <div class="container-fluid">
+    <!-- Project-->
+    <div class="project">
+      <div class="row bg-white has-shadow">
+        <div class="left-col col-lg-8 d-flex align-items-center justify-content-between">
+          <div class="project-title d-flex align-items-center">
+
+            <div class="text">
+              <h3 class="h4">{{ order.name }}</h3><small>{{order.belong_to_category.name}}</small>
+              <div class="project-date"><span class="hidden-sm-down">{{ order.date_created }}</span></div>
+              <p>{{ order.detail }}</p>
+              <div class="text-center">
+                <button type="button" data-toggle="modal" data-target="#myModal"
+                  class="{% if order.belong_to_status.id ==1 %}btn btn-warning {% elif order.belong_to_status.id ==2 %}btn btn-info{% elif order.belong_to_status.id ==3 %}btn btn-primary{% elif order.belong_to_status.id ==4 %}btn btn-success{% elif order.belong_to_status.id ==5 %}btn btn-danger{%endif%}">{{ order.belong_to_status.name }}</button>
+                <!-- Modal-->
+                <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                  <div role="document" class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 id="exampleModalLabel" class="modal-title">Đơn hàng</h4>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Thay đổi tình trạng đơn hàng</p>
+                        <form method="POST">
+                          {{ form.csrf_token }}
+                          <div class="form-group">
+                            <label>Tình trạng đơn hàng</label>
+                            {{ form.status }}
+                          </div>
+                          <div class="form-group">
+                            <button type="submit">Xác nhận</button>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="right-col col-lg-4 d-flex align-items-center">
+          <div class="project-title d-flex align-items-center">
+
+            <div class="text">
+              <h3 class="h4">Thông tin khách hàng</h3>
+              <p>Tên khách hàng: {{ order.belong_to_user.name }}</p>
+              <p>Địa chỉ: {{ order.belong_to_user.address }}</p>
+              <p>Số điện thoại: {{ order.belong_to_user.phone_number }}</p>
+              <p>Email: {{ order.belong_to_user.email }}</p>
+              <p>Ngày tham gia: {{ order.belong_to_user.date_created }}</p>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <!-- Project-->
+
+</section>
+
+
+{% endblock %}

@@ -1,102 +1,106 @@
 <html lang="en-US">
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>The Circle</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href={{url_for('static', filename='favicon/favicon.ico') }}>
-    <link rel={{url_for('static', filename="css/css.css")}} type="text/css" media="all">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Viaoda+Libre&display=swap" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href={{url_for('static', filename="css/style.css")}} rel="stylesheet">
-    <script src="https://kit.fontawesome.com/080b631aa1.js" crossorigin="anonymous"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>The Circle</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href={{url_for('static', filename='favicon/favicon.ico') }}>
+  <link rel="stylesheet" href={{url_for('static', filename="css/css.css")}} type="text/css" media="all">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Viaoda+Libre&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href={{url_for('static', filename="css/style.css")}} rel="stylesheet">
+  <script src="https://kit.fontawesome.com/080b631aa1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!-- Content Area -->
-<!-- header -->
-    <div class="oi_head_holder">
+  <!-- Content Area -->
+  <!-- header -->
+  <div class="oi_head_holder">
 
-        <div class="container">
-            <div class="oi_logo_place">
-                <a href="/"><img src={{url_for('static', filename="img/thecircle-logo.png")}}
-                                                                              alt="The Circle"></a>
-            </div>
-            <div class="oi_xs_menu visible-xs text-center">
-              <a href="javascript:void(0);" class="icon" onclick="hideNav()"><span class="fa fa-bars"></span></a>
-            </div>
-                <ul id="menu-header-menu" class="post-categories oi_header_menu">
-                    <li>
-                        <a href="/">Trang chủ</a>
-                    </li>
-                    <li>
-                        <a href="/about-us">Thông tin</a>
-                    </li>
+    <div class="container">
+      <div class="oi_logo_place">
+        <a href="/"><img src={{url_for('static', filename="img/thecircle-logo.png")}} alt="The Circle"></a>
+      </div>
+      <div class="oi_xs_menu visible-xs text-center">
+        <a href="javascript:void(0);" class="icon" onclick="hideNav()"><span class="fa fa-bars"></span></a>
+      </div>
+      <ul id="menu-header-menu" class="post-categories oi_header_menu">
+        <li>
+          <a href="/">Trang chủ</a>
+        </li>
+        <li>
+          <a href="/about-us">Thông tin</a>
+        </li>
 
-                    <li>
-                        <a href="/contact-us">Liên hệ</a>
-                    </li>
+        <li>
+          <a href="/contact-us">Liên hệ</a>
+        </li>
 
-                    {% if current_user.is_authenticated %}
-                    <li>
-                        <a href="/users/{{ current_user.id }}">Quản lý</a>
-                    </li>
-                    <li>
-                        <a href="/logout">Đăng xuất</a>
-                    </li>
-                    {%else%}
-                    <li>
-                        <a href="/login">Đăng nhập</a>
-                    </li>
-                    {% endif %}
+        {% if current_user.is_authenticated %}
+        <li>
+          <a>Quản lý</a>
+          <ul class="sub-menu">
+            <li><a href={{ url_for('auth.user_profile', id=current_user.id) }}>Tài khoản</a></li>
+            <li><a href={{ url_for('main.new_order') }}>Yêu cầu tuyển dụng</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/logout">Đăng xuất</a>
+        </li>
+        {%else%}
+        <li>
+          <a href="/login">Đăng nhập</a>
+        </li>
+        {% endif %}
 
-                </ul>
-        </div>
+      </ul>
     </div>
-    <!-- end header -->
-<div class="container container-main">
+  </div>
+  <!-- end header -->
+  <div class="container container-main">
     {% block contents %}
     {% endblock %}
-</div>
-<!-- Footer -->
-<div class="container">
+  </div>
+  <!-- Footer -->
+  <div class="container">
     <div class="oi_footer">
-        <div class="row">
-            <div class="col-md-12">
-                T: 0819046668 E: contact@thecircle.vn © 2020 Design by <a
-                    href="#">MrV</a>. Coding by <a
-                    href="https://www.facebook.com/vuhoang17891" target="_blank">MrV</a>.
-            </div>
+      <div class="row">
+        <div class="col-md-12">
+          T: 0819046668 E: contact@thecircle.vn © 2020 Design by <a href="#">MrV</a>. Coding by <a href="https://www.facebook.com/vuhoang17891" target="_blank">MrV</a>.
         </div>
+      </div>
     </div>
-</div>
-<!-- Footer -->
-<script type="text/javascript" src={{url_for('static', filename='js/jquery-3.4.1.js') }}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/bootstrap.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/SmoothScroll.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/isotope.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/lightbox.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/imagesloaded.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/owl.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/jflickrfeed.js")}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/custom.js")}}></script>
-<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
-<div id="lightbox" class="lightbox" style="display: none;">
+  </div>
+  <!-- Footer -->
+  <script type="text/javascript" src={{url_for('static', filename='js/jquery-3.4.1.js') }}></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/SmoothScroll.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/isotope.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/lightbox.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/imagesloaded.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/owl.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/jflickrfeed.js")}}></script>
+  <script type="text/javascript" src={{url_for('static', filename="js/custom.js")}}></script>
+  <div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
+  <div id="lightbox" class="lightbox" style="display: none;">
     <div class="lb-outerContainer">
-        <div class="lb-container"><img class="lb-image" src="">
-            <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
-            <div class="lb-loader"><a class="lb-cancel"></a></div>
-        </div>
+      <div class="lb-container"><img class="lb-image" src="">
+        <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
+        <div class="lb-loader"><a class="lb-cancel"></a></div>
+      </div>
     </div>
     <div class="lb-dataContainer">
-        <div class="lb-data">
-            <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
-            <div class="lb-closeContainer"><a class="lb-close"></a></div>
-        </div>
+      <div class="lb-data">
+        <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
+        <div class="lb-closeContainer"><a class="lb-close"></a></div>
+      </div>
     </div>
-</div>
+  </div>
 </body>
+
 </html>

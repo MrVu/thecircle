@@ -1,10 +1,9 @@
 from flask import Blueprint, request, render_template, \
     flash, g, session, redirect, url_for, current_app
 from flask_login import login_user, logout_user, current_user
-from app.main.models import Post, User
+from app.main.models import User, requires_access_level, ACCESS, Order, OrderStatus
 from werkzeug.utils import secure_filename
 from app import db
-from app.main.models import requires_access_level, ACCESS
 from .forms import LoginForm, RegisterForm
 
 auth = Blueprint('auth', __name__)
@@ -13,7 +12,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/users/<int:id>')
 @requires_access_level(ACCESS['user'])
 def user_profile(id):
-    table_header = ['Mặt hàng', 'Tiền đầu tư', 'Phí kho hàng', 'Tình trạng']
+    table_header = ['Tên dịch vụ', 'Lĩnh vực', 'Ngân sách', 'Tình trạng']
     user = User.query.get(id)
     return render_template('auth/user_profile.html', user=user, table_header=table_header)
 

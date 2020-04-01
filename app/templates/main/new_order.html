@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block contents %}
+<div class="row row-fluid vc_custom_pt60" style="opacity: 1;">
+
+  <div class="col-sm-8">
+    <h1 class="oi_legend">YÊU CẦU TUYỂN DỤNG</h1>
+    <div class="wpcf7" id="fields">
+      <form method="post" class="wpcf7-form">
+        {{ form.csrf_token }}
+        <p>
+          Tên vị trí cần tuyển dụng<br>
+          <span class="wpcf7-form-control-wrap your-name">{{ form.name(class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required", size="40" , required="True", placeholder="Vd: Tìm nguồn hàng, tìm dịch vụ Marketing, vv...") }}</span>
+        </p>
+        <p>
+          Lĩnh vực<br>
+          <span class="wpcf7-form-control-wrap your-email">{{ form.category(class="form-control select-form", required="True") }}</span>
+        </p>
+        <p>
+          Ngân sách dự kiến<br>
+          <span class="wpcf7-form-control-wrap your-email">{{ form.budget(class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required", size="40", required="True", placeholder="Vd: 5.000.000 VNĐ") }}</span>
+        </p>
+        <p>
+          Chi tiết tuyển dụng<br>
+          <span class="wpcf7-form-control-wrap your-message">{{ form.detail(class="wpcf7-form-control wpcf7-textarea", size="40", required="True") }}</span>
+        </p>
+        <p>
+          Lưu ý: Sau khi bạn đăng ký tuyển dụng sẽ có nhân viên của chúng tôi liên lạc để xác nhận lại đơn yêu cầu của bạn trong vòng 1h.
+        </p>
+        <p>
+          <input type="submit" value="Gửi" class="wpcf7-form-control wpcf7-submit">
+        </p>
+        <div class="wpcf7-response-output wpcf7-display-none">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4" style="padding: 20px 0 0 30px;">
+    <h2 class=" oi_sub_legend">Thông tin tài khoản</h2>
+    <div class="oi_port_sep"></div>
+    <p>&nbsp;</p>
+    <p> Tên: {{ current_user.name }}</p>
+    <p> Email: {{ current_user.email }}</p>
+    <p> Điện thoại: {{ current_user.phone_number }}</p>
+    <p> Địa chỉ: {{ current_user.address }}</p>
+    <!-- form -->
+
+  </div>
+</div>
+{% endblock %}

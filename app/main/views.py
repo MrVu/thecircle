@@ -1,8 +1,8 @@
 from flask import Blueprint, request, render_template, \
     flash, g, session, redirect, url_for, current_app
 from flask_mail import Message
-from .models import Post, requires_access_level, ACCESS, Deal
-from .forms import ContactForm, InvestForm
+from .models import requires_access_level, ACCESS, Category, Order, OrderStatus
+from .forms import ContactForm, OrderForm
 from app import mail, db
 from flask_login import current_user
 
@@ -18,11 +18,11 @@ def send_email(subject, sender, recipients, text_body, user_name, user_email):
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    posts = Post.query.all()
     static_url = url_for('static', filename="")
-    return render_template('main/business_index.html', posts=posts, static_url=static_url)
+    return render_template('main/business_index.html', static_url=static_url)
 
 
+"""
 @main.route('/posts/<int:id>', methods=['GET', 'POST'])
 @requires_access_level(ACCESS['user'])
 def post_detail(id):
@@ -35,6 +35,33 @@ def post_detail(id):
         db.session.commit()
         return redirect(url_for('main.index'))
     return render_template('main/post_detail.html', post=post, form=form)
+"""
+
+
+@main.route('/orders/new-order', methods=['GET', 'POST'])
+@requires_access_level(ACCESS['user'])
+def new_order():
+    form = OrderForm()
+    choices = []
+    categories = Category.query.all()
+    for category in categories:
+        choices.append((category.name, category.name))
+    form.category.choices = choices
+    if form.validate_on_submit():
+        category = Category.query.filter_by(name=form.category.data).first()
+        print(category)
+        name = form.name.data
+        detail = form.detail.data
+        budget = form.budget.data
+        order = Order(name=name, detail=detail, budget=budget)
+        order.belong_to_category = category
+        order.belong_to_user = current_user._get_current_object()
+        order.belong_to_status = OrderStatus.query.get(1)
+        db.session.add(order)
+        db.session.commit()
+        return redirect(url_for('auth.user_profile', id=current_user.id))
+
+    return render_template('main/new_order.html', form=form)
 
 
 @main.route('/about-us')

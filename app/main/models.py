@@ -9,7 +9,7 @@ from flask import url_for, request, redirect, session
 ACCESS = {
     'guest': 0,
     'user': 1,
-    'mod':2,
+    'mod': 2,
     'admin': 3
 }
 
@@ -24,35 +24,32 @@ class Base(db.Model):
                               onupdate=db.func.current_timestamp())
 
 
-class Post(Base):
-    __tablename__ = 'blog_post'
-    category = db.Column(db.String(128), nullable=True)
-    title = db.Column(db.String(128), nullable=False)
-    description_text = db.Column(db.String(128), nullable=False)
+class Category(Base):
+    __tablename__ = 'category'
+    name = db.Column(db.String(128), nullable=True)
+    order = db.relationship(
+        'Order', backref='belong_to_category', lazy='dynamic')
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Order(Base):
+    __tablename__ = 'order'
+    name = db.Column(db.String(50))
     detail = db.Column(db.Text, nullable=False)
-    deals= db.relationship('Deal', backref='belong_to_post', lazy='dynamic')
-    interest = db.Column(db.String(128))
-    min_money = db.Column(db.String(128))
-    our_min_money = db.Column(db.String(128))
-    service_fee = db.Column(db.Integer)
+    budget = db.Column(db.String(50))
+    status_id = db.Column(db.Integer, db.ForeignKey('order_status.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
-    def __init__(self, category, title, description_text, detail, interest, min_money, our_min_money):
-        self.category= category
-        self.title = title
-        self.description_text = description_text
-        self.detail = detail
-        self.interest = interest
-        self.min_money= min_money
-        self.our_min_money = our_min_money
 
-    def set_service_fee(self, int_interest):
-        int_interest = int(int_interest.strip('%'))
-        if int_interest < 100:
-            self.service_fee = 50000
-        elif 100 < int_interest < 300:
-            self.service_fee = 100000
-        else:
-            self.service_fee = 150000
+class OrderStatus(Base):
+    __tablename__ = "order_status"
+    order = db.relationship(
+        'Order', backref='belong_to_status', lazy='dynamic')
+    name = db.Column(db.String(50))
+
 
 class User(Base, UserMixin):
     __tablename__ = 'user'
@@ -61,13 +58,14 @@ class User(Base, UserMixin):
     phone_number = db.Column(db.String(50))
     address = db.Column(db.String(128))
     password_hash = db.Column(db.String(128))
-    deals = db.relationship('Deal', backref='belong_to_user', lazy='dynamic')
+    order = db.relationship(
+        'Order', backref='belong_to_user', lazy='dynamic')
     access = db.Column(db.Integer())
 
     def __init__(self, name, email, phone_number, address, access=ACCESS['user']):
         self.name = name
         self.email = email
-        self.phone_number= phone_number
+        self.phone_number = phone_number
         self.address = address
         self.access = access
 
@@ -95,20 +93,6 @@ def user_loader(user_id):
     return User.query.get(user_id)
 
 
-class Deal(Base):
-    __tablename__ = 'deal'
-    status = db.Column(db.String(120))
-    invest_money = db.Column(db.Integer)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('blog_post.id'))
-
-
-class Role(db.Model):
-    __tablename__ = 'roles'
-    id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(50), unique=True)
-
-
 def requires_access_level(access_level):
     def decorator(f):
         @wraps(f)
@@ -117,7 +101,7 @@ def requires_access_level(access_level):
             if not current_user.is_authenticated:
                 return redirect(url_for('auth.user_login'))
             elif not user.allowed(access_level):
-                return redirect(url_for('auth.user_profile', id= current_user.id, message="You do not have access to that page. Sorry!"))
+                return redirect(url_for('auth.user_profile', id=current_user.id, message="You do not have access to that page. Sorry!"))
 
             return f(*args, **kwargs)
 

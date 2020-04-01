@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block contents %}
-<div class="row row-fluid" style="opacity: 1;">
+<div class="row row-fluid vc_custom_pt60" style="opacity: 1;">
 
   <div class="col-sm-8">
     <!-- Deals -->
@@ -14,20 +14,20 @@
         </tr>
       </thead>
       <tbody>
-        {% for deal in user.deals %}
+        {% for order in user.order %}
         <tr>
           <th scope="row"></th>
-          <td>{{deal.belong_to_post.title}}</td>
-          <td>{{deal.invest_money | thousand_seperator}} VNĐ</td>
-          <td>{{ deal.belong_to_post.service_fee | thousand_seperator }} VNĐ</td>
-          <td>{{deal.status}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.belong_to_category.name}}</td>
+          <td>{{ order.budget }}</td>
+          <td>{{order.belong_to_status.name}}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
-  <div class="col-sm-4">
-    <h2 class="oi_sub_legend">Thông tin người dùng</h2>
+  <div class="col-sm-4" style="padding: 0 0 0 30px;">
+    <h2 class="oi_sub_legend">Thông tin tài khoản</h2>
     <div class="oi_port_sep"></div>
     <p>&nbsp;</p>
     <p> Tên: {{ user.name }}</p>

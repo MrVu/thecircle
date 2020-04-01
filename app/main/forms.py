@@ -13,7 +13,8 @@ class ContactForm(FlaskForm):
     content = TextAreaField('Nội dung')
 
 
-class InvestForm(FlaskForm):
-    invest_money = SelectField('Chọn số tiền góp vốn: ',
-                               choices=[('2000000', '2.000.000 VNĐ/tháng'), ('3000000', '3.000.000 VNĐ/tháng'),
-                                        ('5000000', '5.000.000 VNĐ/tháng'), ('8000000', '8.000.000 VNĐ/tháng')])
+class OrderForm(FlaskForm):
+    category = SelectField('Lĩnh vực ')
+    name = StringField('Tên vị trí cần tuyển dụng')
+    detail = TextAreaField('Thông tin chi tiết')
+    budget = StringField('Ngân sách dự kiến')

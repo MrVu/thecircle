@@ -1,74 +1,62 @@
 {% extends 'admin_base.html' %}
 {% block contents %}
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        {% for header in table_header %}
-        <th scope="col">{{ header }}</th>
-        {% endfor %}
-        <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% if posts %}
-    {% for post in posts %}
-    <tr>
-        <th scope="row">{{ post.id }}</th>
-        <td>{{ post.title }}</td>
-        <td>{{ post.description_text }}</td>
-        <td>{{ post.deals|sum(attribute='invest_money') | thousand_seperator}} VND</td>
-        <td> {{ post.deals.count() }}</td>
-        <td>
-            <a href="/admin/posts/edit/{{post.id}}">Edit</a>
-            <a href="/admin/posts/remove/{{post.id}}">Remove</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+            {% endfor %}
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if orders %}
+          {% for order in orders %}
+          <tr>
+            <th scope="row">{{ order.id }}</th>
+            <td><a href={{ url_for('admin.admin_get_order_detail', id = order.id) }}>{{ order.name }}</a></td>
+            <td>{{ order.belong_to_user.name }}</td>
+            <td>{{ order.budget }}</td>
+            <td> {{ order.belong_to_status.name }}</td>
+            <td>
+              <a href="/admin/orders/remove/{{order.id}}">Remove</a>
 
-        </td>
-    </tr>
-    {% endfor %}
-    {% endif %}
-
-
-    {% if deals %}
-    {% for deal in deals %}
-    <tr>
-        <th scope="row">{{ deal.id}}</th>
-        <td><a href="/admin/deals/{{ deal.id }}">{{ deal.belong_to_post.title }}</a></td>
-        <td>{{ deal.belong_to_user.name }}</td>
-        <td>{{ deal.invest_money | thousand_seperator }} VNĐ</td>
-        <td>{{ deal.status }}</td>
-        <td>
-            <!-- <a href="/admin/deals/edit/{{deal.id}}">Edit</a> -->
-            <a href="/admin/deals/remove/{{deal.id}}">Remove</a>
-
-        </td>
-    </tr>
-    {% endfor %}
-    {% endif %}
-
-    {% if users %}
-    {% for user in users %}
-    {% if not user.is_admin() %}
-    <tr>
-        <th scope="row">{{ user.id}}</th>
-        <td><a href="/admin/users/{{user.id}}"> {{ user.name }}</a></td>
-        <td>{{ user.email}}</td>
-        <td>{{ user.address}}</td>
-        <td>{{ user.phone_number}}</td>
-        <td>
-            <a href="/admin/users/edit/{{user.id}}">Edit</a>
-            <a href="/admin/users/remove/{{user.id}}">Remove</a>
-
-        </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-    {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+          {% endif %}
 
 
-    </tbody>
-</table>
-{% if create_link %}
-<a href ={{ create_link[0] }}>{{ create_link[1] }}</a>
-{% endif %}
+          {% if users %}
+          {% for user in users %}
+          {% if not user.is_admin() %}
+          <tr>
+            <th scope="row">{{ user.id}}</th>
+            <td><a href="/admin/users/{{user.id}}"> {{ user.name }}</a></td>
+            <td>{{ user.email}}</td>
+            <td>{{ user.address}}</td>
+            <td>{{ user.phone_number}}</td>
+            <td>
+              <a href="/admin/users/edit/{{user.id}}">Edit</a>
+              <a href="/admin/users/remove/{{user.id}}">Remove</a>
+
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+
+        </tbody>
+      </table>
+      {% if create_link %}
+      <a href={{ create_link[0] }}>{{ create_link[1] }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}

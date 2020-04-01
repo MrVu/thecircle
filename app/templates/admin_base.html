@@ -1,120 +1,144 @@
 <!DOCTYPE html>
-<html lang="" en>
+<!-- saved from url=(0054)https://demo.bootstrapious.com/admin/1-4-6/tables.html -->
+<html>
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>The Circle</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href={{url_for('static', filename='favicon/favicon.ico') }}>
-    <link rel={{url_for('static', filename="css/css.css" )}} type="text/css" media="all">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href={{url_for('static', filename="css/style.css" )}} rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/v8eqszgsciaeyc37n30n1lym6x96pj2nx6k32ykkgfrcdgfh/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin"></script>
-    <script>
-  tinymce.init({
-    selector: 'textarea#editor',
-    skin: 'bootstrap',
-    plugins: 'lists, link, image, media',
-    toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor|outdent indent| alignleft aligncenter alignright alignjustify | link image media | removeformat help',
-    menubar: false
-  });
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>The Circle</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href={{url_for('static', filename='favicon/favicon.ico') }}>
+  <link rel="stylesheet" href={{url_for('static', filename="css/style.default.css" )}} type="text/css" id="theme-stylesheet">
+  <link id="new-stylesheet" rel="stylesheet">
+  <link rel="stylesheet" href={{url_for('static', filename="css/bootstrap.css" )}} type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    </script>
-    <script src="https://kit.fontawesome.com/080b631aa1.js" crossorigin="anonymous"></script>
-
-
+  <!-- Bootstrap -->
+  <script src="https://kit.fontawesome.com/080b631aa1.js" crossorigin="anonymous"></script>
+  <!-- Tweaks for older IEs-->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
+
 <body>
-<!-- Content Area -->
-<!-- header -->
-<div class="oi_head_holder">
-    <div class="container">
-        <div class="oi_logo_place">
-            <a href="/"><img src={{url_for('static', filename="img/thecircle-logo.png" )}}
-                             alt="FlatFolio"></a>
-        </div>
-        <div class="oi_xs_menu visible-xs text-center">
-            <a href="javascript:void(0);" class="icon" onclick="hideNav()"><span class="fa fa-bars"></span></a>
-        </div>
-        <nav>
-            <ul id="menu-header-menu-1" class="post-categories oi_header_menu">
-                <li>
-                    <a href="/">Trang chủ</a>
-                </li>
-                <li>
-                    <a href="/admin">Bài viết</a>
-                </li>
-                <li>
-                    <a href="/admin/deals">Đơn hàng</a>
-                </li>
-                <li>
-                    <a href="/admin/users">Người dùng</a>
-                </li>
-                <li>
-                    <a href="/admin/notes">Thông báo</a>
-                </li>
-                <li>
-                    <a href="/logout">Đăng xuất</a>
-                </li>
-
-            </ul>
-        </nav>
-    </div>
-</div>
-<!-- end header -->
-<div class="container container-main">
-{% block contents %}
-{% endblock %}
-</div>
-<!-- Footer -->
-<div class="container">
-    <div class="oi_footer">
-        <div class="row">
-            <div class="col-md-12">
-                T: 0819046668 E: contact@thecircle.com © 2020 Design by <a
-                    href="#">MrV</a>. Coding by <a
-                    href="https://www.facebook.com/vuhoang17891" target="_blank">MrV</a>.
+  <div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+      <nav class="navbar">
+        <!-- Search Box-->
+        <div class="container-fluid">
+          <div class="navbar-holder d-flex align-items-center justify-content-between">
+            <!-- Navbar Header-->
+            <div class="navbar-header">
+              <!-- Navbar Brand --><a href="#" class="navbar-brand d-none d-sm-inline-block">
+                <div class="brand-text d-none d-lg-inline-block"><span></span><strong>THE CIRCLE</strong></div>
+                <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
+              </a>
+              <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Footer -->
-<script type="text/javascript" src={{url_for('static', filename="js/SmoothScroll.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/isotope.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/lightbox.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/imagesloaded.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/owl.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/jflickrfeed.js" )}}></script>
-<script type="text/javascript" src={{url_for('static', filename="js/custom.js" )}}></script>
+            <!-- Navbar Menu -->
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+              <!-- Search-->
+              <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+              <!-- Notifications-->
+              <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span
+                    class="badge bg-red badge-corner">12</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification">
+                        <div class="notification-content"><i class="fa fa-envelope bg-green"></i>You have 6 new messages </div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification">
+                        <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification">
+                        <div class="notification-content"><i class="fa fa-upload bg-orange"></i>Server Rebooted</div>
+                        <div class="notification-time"><small>4 minutes ago</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification">
+                        <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                        <div class="notification-time"><small>10 minutes ago</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>view all notifications </strong></a></li>
+                </ul>
+              </li>
+              <!-- Messages                        -->
+              <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span
+                    class="badge bg-orange badge-corner">10</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="./admin_table_files/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="./admin_table_files/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="./admin_table_files/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                      <div class="msg-body">
+                        <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages </strong></a></li>
+                </ul>
+              </li>
+              <!-- Languages dropdown    -->
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
-<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
-<div id="lightbox" class="lightbox" style="display: none;">
-    <div class="lb-outerContainer">
-        <div class="lb-container"><img class="lb-image" src="">
-            <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
-            <div class="lb-loader"><a class="lb-cancel"></a></div>
+              </li>
+              <!-- Logout    -->
+              <li class="nav-item"><a href="/logout" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <div class="lb-dataContainer">
-        <div class="lb-data">
-            <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
-            <div class="lb-closeContainer"><a class="lb-close"></a></div>
+      </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+      <!-- Side Navbar -->
+      <nav class="side-navbar">
+        <!-- Sidebar Header-->
+        <div class="sidebar-header d-flex align-items-center">
+          <div class="title">
+            <h1 class="h4">The Circle</h1>
+            <p>Together strong</p>
+          </div>
         </div>
+        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+        <ul class="list-unstyled">
+          <li><a href="/admin"> <i class="icon-home"></i>Thống kê</a></li>
+          <li><a href="/admin/orders"> <i class="icon-grid"></i>Đơn hàng <span class="badge bg-red badge-corner">{{ g.status_count }}</span></a></li>
+          <li><a href="/admin/users"> <i class="icon-grid"></i>Khách hàng</a></li>
+        </ul>
+      </nav>
+      <div class="content-inner" style="padding-bottom: 59px;">
+        {% block contents %}
+        {% endblock %}
+      </div>
     </div>
-</div>
+  </div>
+  <!-- JavaScript files-->
+  <script type="text/javascript" src={{url_for('static', filename='js/jquery-3.4.1.js') }}></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Main File-->
+  <script type="text/javascript" src={{url_for('static', filename='js/front.js') }}></script>
+
 </body>
+
 </html>
