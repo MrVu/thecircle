@@ -45,7 +45,7 @@ def register():
 @auth.route('/login', methods=['GET', 'POST'])
 def user_login():
     if current_user.is_authenticated:
-        return redirect(url_for('admin.get_posts'))
+        return redirect(url_for('auth.user_profile'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -54,7 +54,7 @@ def user_login():
             return redirect(url_for('auth.user_login'))
         login_user(user)
         if user.access >= ACCESS['admin']:
-            return redirect(url_for('admin.get_posts'))
+            return redirect(url_for('admin.get_orders'))
         else:
             return redirect(url_for('auth.user_profile', id=user.id))
     return render_template('auth/login.html', form=form)
