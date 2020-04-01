@@ -70,7 +70,7 @@ def remove_user(id):
     user = User.query.get(id)
     db.session.delete(user)
     db.session.commit()
-    return redirect(url_for('admin.get_posts'))
+    return redirect(url_for('admin.get_users'))
 
 
 @admin.route('/admin/orders/remove/<int:id>')
@@ -96,7 +96,7 @@ def edit_user(id):
         if pw:
             user.set_password(pw)
         db.session.commit()
-        return redirect(url_for('admin.get_posts'))
+        return redirect(url_for('admin.get_users'))
     form.name.data = user.name
     form.phone_number.data = user.phone_number
     form.email.data = user.email
