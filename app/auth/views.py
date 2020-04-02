@@ -45,7 +45,7 @@ def register():
 @auth.route('/login', methods=['GET', 'POST'])
 def user_login():
     if current_user.is_authenticated:
-        return redirect(url_for('auth.user_profile'))
+        return redirect(url_for('auth.user_profile', id=current_user.id))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
