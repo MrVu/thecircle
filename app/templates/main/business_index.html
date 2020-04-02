@@ -1,161 +1,163 @@
 {% extends 'base.html' %}
 {% block contents %}
 
-        <div class="col-md-12">
+<div class="col-md-12">
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
 
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src={{ url_for('static', filename='img/banner-4-1110x740.jpg') }} alt="Los Angeles">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src={{ url_for('static', filename='img/banner-4-1110x740.jpg') }} alt="Los Angeles">
+      </div>
+
+      <div class="item">
+        <img src={{ url_for('static', filename='img/banner-1-1110x740.jpg') }} alt="Chicago">
+      </div>
+
+      <div class="item">
+        <img src={{ url_for('static', filename='img/banner-2-1110x740.jpg') }} alt="New York">
+      </div>
     </div>
 
-    <div class="item">
-      <img src={{ url_for('static', filename='img/banner-1-1110x740.jpg') }} alt="Chicago">
-    </div>
-
-    <div class="item">
-      <img src={{ url_for('static', filename='img/banner-2-1110x740.jpg') }} alt="New York">
+  </div>
+</div>
+<div class="row row-fluid vc_custom_pt80" style="opacity: 1;">
+  <div class="col-sm-6 oi_block">
+    <h2 class="oi_legend">CHÀO BẠN</h2>
+    <h2 class="oi_legend">ĐẾN VỚI THE CIRCLE</h2>
+    <div class="oi_port_sep mb30"></div>
+    <p><strong>We just <i class="fa fa-heart red"></i> what you do</strong></p>
+  </div>
+  <div class="col-sm-6 oi_block">
+    <p>Bạn đang muốn bắt đầu kinh doanh nhưng không biết bắt đầu từ đâu, có quá nhiều thứ để chuẩn bị nhưng mối quan hệ của bạn thì hạn chế, trên thị trường có rất nhiều dịch vụ bạn cần nhưng chất lượng thì không đồng nhất</p>
+    <p>The Circle được thành lập với mong muốn giúp bạn tổ chức công việc với những dịch vụ chuyên nghiệp nhất với những tiêu chuẩn chọn lọc và theo dõi khắt khe. Chúng tôi bao gồm những thành viên có nhiều năm kinh nghiệm trong việc kinh doanh và
+      kiểm soát chất lượng cùng với mối quan hệ với nhiều nguồn hàng hóa và nhân lực tốt cam kết sẽ mang đến cho bạn một hệ sinh thái kinh doanh hợp lý nhất.</p>
+  </div>
+</div>
+<div class="row row-fluid full_row" style="opacity: 1;">
+  <div class="col-sm-6">
+    <div class="vc_custom_block_fafafa center">
+      <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/29.webp') }} alt=""></div>
+      <p>&nbsp;</p>
+      <h2>THIẾT KẾ WEBSITE</h2>
+      <p>Chúng tôi có mạng lưới freelancer và công ty thiết kế website chuyên nghiệp với chất lượng cao phù hợp với yêu cầu và bảo vệ quyền lợi lâu dài cho bạn.</p>
     </div>
   </div>
 
+  <div class="col-sm-6 bg_808080">
+    <div class="vc_custom_block_eaeaea center">
+      <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/33.webp') }} alt=""></div>
+      <p>&nbsp;</p>
+      <h2>MARKETING</h2>
+      <p>Những đối tác trong lĩnh vực Marketing của chúng tôi sẽ đảm bảo bạn có thể khởi động doanh nghiệp của mình với lượng tương tác bạn mong muốn. </p>
+    </div>
+  </div>
 </div>
-        </div>
-    <div class="row row-fluid vc_custom_pt80" style="opacity: 1;">
-        <div class="col-sm-6 oi_block">
-                <h2 class="oi_legend">CHÀO BẠN</h2>
-                <h2 class="oi_legend">ĐẾN VỚI THE CIRCLE</h2>
-                <div class="oi_port_sep mb30"></div>
-                <p><strong>We just <i class="fa fa-heart red"></i> what you do</strong></p>
-        </div>
-        <div class="col-sm-6 oi_block">
-                <p>Bạn đang muốn bắt đầu kinh doanh nhưng không biết bắt đầu từ đâu, có quá nhiều thứ để chuẩn bị nhưng mối quan hệ của bạn thì hạn chế, trên thị trường có rất nhiều dịch vụ bạn cần nhưng chất lượng thì không đồng nhất</p>
-    			<p>The Circle được thành lập với mong muốn giúp bạn tổ chức công việc với những dịch vụ chuyên nghiệp nhất với những tiêu chuẩn chọn lọc và theo dõi khắt khe. Chúng tôi bao gồm những thành viên có nhiều năm kinh nghiệm trong việc kinh doanh và kiểm soát chất lượng cùng với mối quan hệ với nhiều nguồn hàng hóa và nhân lực tốt cam kết sẽ mang đến cho bạn một hệ sinh thái kinh doanh hợp lý nhất.</p>
-        </div>
+<div class="row row-fluid full_row mb60_1" style="opacity: 1;">
+  <div class="col-sm-6 bg_808080">
+    <div class="vc_custom_block_eaeaea center">
+      <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/26.webp') }} alt=""></div>
+      <p>&nbsp;</p>
+      <h2>CHỤP ẢNH</h2>
+      <p>Bạn cần chụp mẫu hoặc sản phẩm? Chúng tôi sẽ hỗ trợ bạn liên kết với những nhiếp ảnh gia ở các phân khúc khác nhau phù hợp với mô hình kinh doanh của bạn</p>
     </div>
-    <div class="row row-fluid full_row" style="opacity: 1;">
-        <div class="col-sm-6">
-            <div class="vc_custom_block_fafafa center">
-                    <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/29.webp') }} alt=""></div>
-                    <p>&nbsp;</p>
-                    <h2>THIẾT KẾ WEBSITE</h2>
-                    <p>Chúng tôi có mạng lưới freelancer và công ty thiết kế website chuyên nghiệp với chất lượng cao phù hợp với yêu cầu và bảo vệ quyền lợi lâu dài cho bạn.</p>
-            </div>
-        </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="vc_custom_block_fafafa center">
+      <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/41.webp') }} alt=""></div>
+      <p>&nbsp;</p>
+      <h2>NGUỒN HÀNG</h2>
+      <p>Bạn sẽ lựa chọn ra sao khi nơi nào cũng cam kết cho bạn giá "sỉ" và "hàng chính hãng" nhất. The Circle sẽ mang lại cho bạn những nguồn hàng uy tín với giá cả phù hợp với yêu cầu của bạn</p>
+    </div>
+  </div>
+</div>
+<div class="row row-fluid vc_custom_pt80" style="opacity: 1;">
+  <div class="col-sm-6 oi_block">
+    <h2 class="oi_legend">ĐỐI TÁC</h2>
+    <div class="oi_port_sep mb30"></div>
+    <p>Với nhiều năm kinh nghiệm trong việc hỗ trợ xây dựng doanh nghiệp, The Circle đã trang bị cho mình mạng lưới đối tác đa dạng trong nhiều lĩnh vực khác nhau với mong muốn sẽ giúp bạn khởi động doanh nghiệp nhanh và hiệu quả nhất bằng cách cung
+      cấp cho bạn những đối tác uy tín và có kinh nghiệm nhất trong lĩnh vực bạn yêu cầu.</p>
+  </div>
 
-        <div class="col-sm-6 bg_808080">
-            <div class="vc_custom_block_eaeaea center">
-                <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/33.webp') }} alt=""></div>
-                <p>&nbsp;</p>
-                <h2>MARKETING</h2>
-                <p>Những đối tác trong lĩnh vực Marketing của chúng tôi sẽ đảm bảo bạn có thể khởi động doanh nghiệp của mình với lượng tương tác bạn mong muốn. </p>
-            </div>
-        </div>
+  <div class="col-sm-6 oi_block">
+    <div class="row row-fluid" style="opacity: 1;">
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l4.png') }} class="img-responsive padding-left-15" alt="l4">
+      </div>
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l5.png') }} class="img-responsive padding-left-15" alt="l5">
+      </div>
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l6.png') }} class="img-responsive padding-left-15" alt="l6">
+      </div>
     </div>
-    <div class="row row-fluid full_row mb60_1" style="opacity: 1;">
-        <div class="col-sm-6 bg_808080">
-            <div class="vc_custom_block_eaeaea center">
-                <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/26.webp') }} alt=""></div>
-                <p>&nbsp;</p>
-                <h2>CHỤP ẢNH</h2>
-                <p>Bạn cần chụp mẫu hoặc sản phẩm? Chúng tôi sẽ hỗ trợ bạn liên kết với những nhiếp ảnh gia ở các phân khúc khác nhau phù hợp với mô hình kinh doanh của bạn</p>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="vc_custom_block_fafafa center">
-                <div class="center"><img class="aligncenter" src={{ url_for('static', filename='img/41.webp') }} alt=""></div>
-                <p>&nbsp;</p>
-                <h2>NGUỒN HÀNG</h2>
-                <p>Bạn sẽ lựa chọn ra sao khi nơi nào cũng cam kết cho bạn giá "sỉ" và "hàng chính hãng" nhất. The Circle sẽ mang lại cho bạn những nguồn hàng uy tín với giá cả phù hợp với yêu cầu của bạn</p>
-            </div>
-        </div>
+    <div class="row row-fluid" style="opacity: 1;">
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l1.png') }} class="img-responsive padding-left-15" alt="l1">
+      </div>
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l2.png') }} class="img-responsive padding-left-15" alt="l2">
+      </div>
+      <div class="col-sm-4">
+        <img src={{ url_for('static', filename='img/l3.png') }} class="img-responsive padding-left-15" alt="l3">
+      </div>
     </div>
-    <div class="row row-fluid vc_custom_pt80" style="opacity: 1;">
-        <div class="col-sm-6 oi_block">
-            <h2 class="oi_legend">ĐỐI TÁC</h2>
-            <div class="oi_port_sep mb30"></div>
-            <p>Với nhiều năm kinh nghiệm trong việc hỗ trợ xây dựng doanh nghiệp, The Circle đã trang bị cho mình mạng lưới đối tác đa dạng trong nhiều lĩnh vực khác nhau với mong muốn sẽ giúp bạn khởi động doanh nghiệp nhanh và hiệu quả nhất bằng cách cung cấp cho bạn những đối tác uy tín và có kinh nghiệm nhất trong lĩnh vực bạn yêu cầu.</p>
-        </div>
-
-        <div class="col-sm-6 oi_block">
-             <div class="row row-fluid" style="opacity: 1;">
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l4.png') }} class="img-responsive" alt="l4">
-                </div>
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l5.png') }} class="img-responsive" alt="l5">
-                </div>
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l6.png') }} class="img-responsive" alt="l6">
-                </div>
-            </div>
-            <div class="row row-fluid" style="opacity: 1;">
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l1.png') }} class="img-responsive" alt="l1">
-                </div>
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l2.png') }} class="img-responsive" alt="l2">
-                </div>
-                <div class="col-sm-4">
-                    <img src={{ url_for('static', filename='img/l3.png') }} class="img-responsive" alt="l3">
-                </div>
-            </div>
-		</div>
+  </div>
+</div>
+<div class="row row-fluid full_row vc_custom_block_f6f6f6" style="opacity: 1;">
+  <div class="col-sm-12">
+    <div class="onepage_portfolio center">
+      <h1 class="oi_legend">NHIỆM VỤ</h1>
+      <div class="oi_boxed_text">
+        <p class="text-center"><em> Chúng tôi sẽ đồng hành cùng bạn trên mọi chặng đường </p>
+      </div>
     </div>
-    <div class="row row-fluid full_row vc_custom_block_f6f6f6" style="opacity: 1;">
-        <div class="col-sm-12">
-            <div class="onepage_portfolio center">
-                <h1 class="oi_legend">NHIỆM VỤ</h1>
-                <div class="oi_boxed_text">
-                    <p class="text-center"><em> Chúng tôi sẽ đồng hành cùng bạn trên mọi chặng đường </p>
-                </div>
-            </div>
+  </div>
+</div>
+<div class="row row-fluid oi_wall" style="opacity: 1;">
+  <div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-long design">
+    <div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
+      <a>
+        <img class="img-responsive" src={{ url_for('static', filename='img/shake_hand-390x390.jpg') }} alt="">
+        <div class="oi_mask">
+          <h4 class="oi_sub_legend">Thỏa thuận</h4>
+          <div class="oi_port_sep"></div>
+          <div class="oi_port_cats"></div>
+          <div class="oi_small_descr">Chúng tôi sẽ thay mặt bạn tìm kiếm dịch vụ bạn yêu cầu, thỏa thuận, chọn kết quả tốt nhất và thông báo lại cho bạn</div>
         </div>
+      </a>
     </div>
-    <div class="row row-fluid oi_wall" style="opacity: 1;">
-	    <div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-long design">
-       		<div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
-            	<a>
-                	<img class="img-responsive" src={{ url_for('static', filename='img/shake_hand-390x390.jpg') }} alt="">
-                    <div class="oi_mask">
-                        <h4 class="oi_sub_legend">Thỏa thuận</h4>
-                        <div class="oi_port_sep"></div>
-                        <div class="oi_port_cats"></div>
-                        <div class="oi_small_descr">Chúng tôi sẽ thay mặt bạn tìm kiếm dịch vụ bạn yêu cầu, thỏa thuận, chọn kết quả tốt nhất và thông báo lại cho bạn</div>
-                    </div>
-                </a>
-        	</div>
+  </div>
+  <div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-squre wordpress">
+    <div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
+      <a>
+        <img class="img-responsive" src={{ url_for('static', filename='img/working-asian-390x390.jpg') }} alt="">
+        <div class="oi_mask">
+          <h4 class="oi_sub_legend">Theo dõi</h4>
+          <div class="oi_port_sep"></div>
+          <div class="oi_port_cats"></div>
+          <div class="oi_small_descr">Sau khi bạn tìm được đối tác thích hợp, chúng tôi vẫn sẽ tiếp tục theo dõi tiến trình làm việc của các bên để có thể thay đổi đối tác khi bạn yêu cầu</div>
         </div>
-		<div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-squre wordpress">
-       		<div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
-            <a>
-                <img class="img-responsive" src={{ url_for('static', filename='img/working-asian-390x390.jpg') }} alt="">
-                    <div class="oi_mask">
-                        <h4 class="oi_sub_legend">Theo dõi</h4>
-                        <div class="oi_port_sep"></div>
-                        <div class="oi_port_cats"></div>
-                        <div class="oi_small_descr">Sau khi bạn tìm được đối tác thích hợp, chúng tôi vẫn sẽ tiếp tục theo dõi tiến trình làm việc của các bên để có thể thay đổi đối tác khi bạn yêu cầu</div>
-                    </div>
-                </a>
-        	</div>
+      </a>
+    </div>
+  </div>
+  <div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-long wordpress">
+    <div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
+      <a>
+        <img class="img-responsive" src={{ url_for('static', filename='img/coin-390x390.jpg') }} alt="">
+        <div class="oi_mask">
+          <h4 class="oi_sub_legend">Phát triển</h4>
+          <div class="oi_port_sep"></div>
+          <div class="oi_port_cats"></div>
+          <div class="oi_small_descr">The Circle sẽ đồng hành cùng bạn trong quá trình phát triển cũng như trong việc tư vấn đối tác mới để đáp ứng được sự thay đổi trong cấu trúc doanh nghiệp của bạn</div>
         </div>
-		<div class="oi_strange_portfolio_item oi_col col-md-4 wall-portfolio-long wordpress">
-       		<div class="oi_strange_portfolio_item_holder" style="opacity: 1;">
-            <a>
-                <img class="img-responsive" src={{ url_for('static', filename='img/coin-390x390.jpg') }} alt="">
-                    <div class="oi_mask">
-                        <h4 class="oi_sub_legend">Phát triển</h4>
-                        <div class="oi_port_sep"></div>
-                        <div class="oi_port_cats"></div>
-                        <div class="oi_small_descr">The Circle sẽ đồng hành cùng bạn trong quá trình phát triển cũng như trong việc tư vấn đối tác mới để đáp ứng được sự thay đổi trong cấu trúc doanh nghiệp của bạn</div>
-                    </div>
-                </a>
-        	</div>
-        </div>
+      </a>
+    </div>
+  </div>
 
 
-	</div>
+</div>
 {% endblock %}
